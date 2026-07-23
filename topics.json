@@ -1,1 +1,103 @@
+{
+  "topics": [
+    {
+      "topic": "Artificial Intelligence",
+      "emoji": "🧠",
+      "description": "Machine learning, neural networks, NLP & more.",
+      "subtopics": [
+        { "name": "Transformers", "link": "https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)" },
+        { "name": "Computer Vision", "link": "https://en.wikipedia.org/wiki/Computer_vision" },
+        { "name": "Reinforcement Learning", "link": "https://en.wikipedia.org/wiki/Reinforcement_learning" },
+        { "name": "AI Ethics", "link": "https://en.wikipedia.org/wiki/AI_ethics" },
+        { "name": "Generative AI", "link": "https://en.wikipedia.org/wiki/Generative_artificial_intelligence" }
+      ]
+    },
+    {
+      "topic": "Web Development",
+      "emoji": "🌐",
+      "description": "Frontend, backend, full‑stack and modern frameworks.",
+      "subtopics": [
+        { "name": "React", "link": "https://react.dev/" },
+        { "name": "Vue.js", "link": "https://vuejs.org/" },
+        { "name": "Node.js", "link": "https://nodejs.org/" },
+        { "name": "CSS Grid", "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout" },
+        { "name": "TypeScript", "link": "https://www.typescriptlang.org/" },
+        { "name": "Tailwind CSS", "link": "https://tailwindcss.com/" }
+      ]
+    },
+    {
+      "topic": "Data Science",
+      "emoji": "📊",
+      "description": "Analytics, visualization, big data & statistics.",
+      "subtopics": [
+        { "name": "Pandas", "link": "https://pandas.pydata.org/" },
+        { "name": "Matplotlib", "link": "https://matplotlib.org/" },
+        { "name": "SQL", "link": "https://en.wikipedia.org/wiki/SQL" },
+        { "name": "Tableau", "link": "https://www.tableau.com/" },
+        { "name": "MLOps", "link": "https://ml-ops.org/" },
+        { "name": "Apache Spark", "link": "https://spark.apache.org/" }
+      ]
+    },
+    {
+      "topic": "Cybersecurity",
+      "emoji": "🔐",
+      "description": "Network security, cryptography, ethical hacking.",
+      "subtopics": [
+        { "name": "Penetration Testing", "link": "https://en.wikipedia.org/wiki/Penetration_test" },
+        { "name": "Zero Trust", "link": "https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/" },
+        { "name": "Cryptography", "link": "https://en.wikipedia.org/wiki/Cryptography" },
+        { "name": "SOC", "link": "https://en.wikipedia.org/wiki/Security_operations_center" },
+        { "name": "Threat Intelligence", "link": "https://en.wikipedia.org/wiki/Threat_intelligence" }
+      ]
+    },
+    {
+      "topic": "Cloud Computing",
+      "emoji": "☁️",
+      "description": "AWS, Azure, GCP, serverless & containers.",
+      "subtopics": [
+        { "name": "EC2", "link": "https://aws.amazon.com/ec2/" },
+        { "name": "Lambda", "link": "https://aws.amazon.com/lambda/" },
+        { "name": "Kubernetes", "link": "https://kubernetes.io/" },
+        { "name": "Terraform", "link": "https://www.terraform.io/" },
+        { "name": "Cloud Security", "link": "https://cloudsecurityalliance.org/" }
+      ]
+    },
+    {
+      "topic": "DevOps",
+      "emoji": "⚙️",
+      "description": "CI/CD, automation, monitoring & infrastructure.",
+      "subtopics": [
+        { "name": "Jenkins", "link": "https://www.jenkins.io/" },
+        { "name": "Docker", "link": "https://www.docker.com/" },
+        { "name": "GitHub Actions", "link": "https://github.com/features/actions" },
+        { "name": "Prometheus", "link": "https://prometheus.io/" },
+        { "name": "Ansible", "link": "https://www.ansible.com/" }
+      ]
+    },
+    {
+      "topic": "Mobile Development",
+      "emoji": "📱",
+      "description": "iOS, Android, cross‑platform & UI/UX.",
+      "subtopics": [
+        { "name": "SwiftUI", "link": "https://developer.apple.com/swiftui/" },
+        { "name": "Kotlin", "link": "https://kotlinlang.org/" },
+        { "name": "Flutter", "link": "https://flutter.dev/" },
+        { "name": "React Native", "link": "https://reactnative.dev/" },
+        { "name": "Firebase", "link": "https://firebase.google.com/" }
+      ]
+    },
+    {
+      "topic": "Game Development",
+      "emoji": "🎮",
+      "description": "Unity, Unreal, game design & physics.",
+      "subtopics": [
+        { "name": "C#", "link": "https://learn.microsoft.com/en-us/dotnet/csharp/" },
+        { "name": "Unreal Blueprints", "link": "https://docs.unrealengine.com/5.0/en-US/blueprints-visual-scripting-in-unreal-engine/" },
+        { "name": "3D Modeling", "link": "https://en.wikipedia.org/wiki/3D_modeling" },
+        { "name": "Game AI", "link": "https://en.wikipedia.org/wiki/Game_AI" },
+        { "name": "Multiplayer", "link": "https://en.wikipedia.org/wiki/Multiplayer_video_game" }
+      ]
+    }
+  ]
+}
 
