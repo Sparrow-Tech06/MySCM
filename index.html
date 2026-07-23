@@ -3,176 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home · Topic Grid</title>
+  <title>Topics · simple grid</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background: #f0f3f8;
+      background: #f4f7fc;
       font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      padding: 2rem 1rem;
       min-height: 100vh;
+      padding: 2rem 1rem;
     }
-    .app-container {
-      max-width: 1300px;
+    .app {
+      max-width: 1200px;
       margin: 0 auto;
     }
-    .header-section {
+    .head {
       margin-bottom: 2.5rem;
     }
-    .header-section h1 {
+    .head h1 {
       font-weight: 700;
-      color: #0b1b33;
+      color: #0b1f3a;
       letter-spacing: -0.02em;
     }
-    .header-section .subhead {
-      color: #475569;
+    .head .sub {
+      color: #2c3e5c;
       border-left: 4px solid #3b82f6;
       padding-left: 1rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
     }
-    .topic-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
     }
-    .topic-card {
+    .card-topic {
       background: white;
-      border-radius: 24px;
-      padding: 1.8rem 1.5rem 1.2rem;
-      border: 1px solid #e2e9f2;
-      transition: all 0.25s ease;
+      border-radius: 20px;
+      padding: 1.6rem 1.2rem 1.2rem;
+      border: 1px solid #dfe8f2;
+      transition: 0.2s ease;
       text-decoration: none;
-      color: #0b1b33;
+      color: #0b1f3a;
       display: flex;
       flex-direction: column;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
       cursor: pointer;
     }
-    .topic-card:hover {
-      transform: translateY(-6px);
-      border-color: #a8c0e8;
-      box-shadow: 0 16px 32px -10px rgba(59, 130, 246, 0.15);
+    .card-topic:hover {
+      transform: translateY(-4px);
+      border-color: #b0c8e8;
+      box-shadow: 0 12px 28px -8px rgba(59,130,246,0.12);
       background: #ffffff;
     }
-    .topic-card:active {
-      transform: scale(0.97);
-    }
-    .topic-card .topic-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-    .topic-card .topic-header h3 {
-      font-weight: 600;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin: 0;
-    }
-    .topic-card .topic-header .emoji {
-      font-size: 1.8rem;
+    .card-topic:active { transform: scale(0.97); }
+    .card-topic .emoji-big {
+      font-size: 2rem;
       line-height: 1;
+      margin-bottom: 0.3rem;
     }
-    .topic-card .topic-header .count-badge {
-      background: #eef4ff;
-      color: #1e4a8a;
-      border-radius: 40px;
-      padding: 0.2rem 0.9rem;
-      font-size: 0.7rem;
+    .card-topic .title {
       font-weight: 600;
+      font-size: 1.2rem;
+      margin: 0.2rem 0 0.3rem;
     }
-    .topic-card .description {
-      color: #475569;
+    .card-topic .desc {
+      color: #3d516e;
       font-size: 0.9rem;
       flex: 1;
-      margin-bottom: 0.8rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem;
     }
-    .topic-card .sub-preview {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem 0.6rem;
-      border-top: 1px solid #e8edf5;
-      padding-top: 0.8rem;
-      margin-top: 0.3rem;
-    }
-    .topic-card .sub-preview span {
-      background: #f1f5f9;
-      padding: 0.15rem 0.8rem;
-      border-radius: 40px;
+    .card-topic .hint {
       font-size: 0.7rem;
-      font-weight: 500;
-      color: #1e293b;
-    }
-    .topic-card .sub-preview .more-indicator {
-      background: transparent;
-      color: #3b82f6;
-      font-weight: 500;
-    }
-    .topic-card .click-hint {
-      font-size: 0.75rem;
-      color: #94a3b8;
-      margin-top: 0.6rem;
+      color: #7a8aa3;
       display: flex;
       align-items: center;
       gap: 0.3rem;
+      border-top: 1px solid #eef3f9;
+      padding-top: 0.6rem;
+      margin-top: 0.2rem;
     }
-    .loading-spinner {
+    .loading, .error {
       text-align: center;
-      padding: 3rem;
+      padding: 2.5rem;
+      grid-column: 1 / -1;
     }
-    .error-message {
-      text-align: center;
-      padding: 3rem;
-      color: #dc3545;
+    .badge-json {
+      background: #eaf0fa;
+      color: #1f3a66;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
     }
-    @media (max-width: 576px) {
-      .topic-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-      .header-section h1 {
-        font-size: 1.8rem;
-      }
+    @media (max-width: 480px) {
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<div class="app-container">
-  <!-- Header -->
-  <div class="header-section">
-    <div class="d-flex flex-wrap align-items-center justify-content-between">
-      <div>
-        <h1><i class="bi bi-grid-3x3-gap-fill text-primary me-2"></i>Topic Explorer</h1>
-        <div class="subhead">Click a topic → <strong>learn.html?topic=...</strong> to see subtopics</div>
-      </div>
-      <div class="mt-2 mt-sm-0">
-        <span class="badge bg-light text-dark border px-3 py-2 rounded-pill">
-          <i class="bi bi-filetype-json me-1"></i> JSON data
-        </span>
-      </div>
+<div class="app">
+  <!-- header -->
+  <div class="head d-flex flex-wrap align-items-center justify-content-between">
+    <div>
+      <h1><i class="bi bi-grid-fill text-primary me-2"></i>Topic Grid</h1>
+      <div class="sub">title + description · from <code>topics.json</code></div>
+    </div>
+    <span class="badge-json mt-2 mt-sm-0"><i class="bi bi-filetype-json me-1"></i> JSON</span>
+  </div>
+
+  <!-- grid -->
+  <div id="topicGrid" class="grid">
+    <div class="loading">
+      <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div>
+      <p class="mt-2 text-muted">loading topics…</p>
     </div>
   </div>
 
-  <!-- Grid Container -->
-  <div id="topicGrid" class="topic-grid">
-    <div class="loading-spinner">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <p class="mt-2 text-muted">Loading topics from JSON...</p>
-    </div>
-  </div>
-
-  <div class="mt-5 text-center text-muted small border-top pt-3">
-    <i class="bi bi-link-45deg me-1"></i> Data loaded from <code>topics.json</code>
+  <div class="mt-4 text-center text-muted small border-top pt-3">
+    <i class="bi bi-dot"></i> simple · only title & description
   </div>
 </div>
 
@@ -180,82 +130,57 @@
   (function() {
     const grid = document.getElementById('topicGrid');
 
-    // Function to render topic cards
-    function renderTopics(topics) {
+    function renderCards(topics) {
       if (!topics || topics.length === 0) {
         grid.innerHTML = `
-          <div class="error-message">
-            <i class="bi bi-exclamation-triangle-fill fs-1"></i>
-            <h5 class="mt-3">No topics found in JSON</h5>
-            <p class="text-muted">Please check your topics.json file.</p>
+          <div class="error">
+            <i class="bi bi-inbox fs-1"></i>
+            <h5 class="mt-2">No topics</h5>
+            <p class="text-muted">JSON array is empty.</p>
           </div>
         `;
         return;
       }
 
       grid.innerHTML = '';
-      topics.forEach(topic => {
+      topics.forEach(t => {
         const card = document.createElement('a');
-        card.className = 'topic-card';
-        card.href = `learn.html?topic=${encodeURIComponent(topic.topic)}`;
+        card.className = 'card-topic';
+        card.href = `learn.html?topic=${encodeURIComponent(t.topic)}`;
 
-        const subtopics = topic.subtopics || [];
-        const subtopicCount = subtopics.length;
-
-        // Build preview (show first 3 subtopic names)
-        let previewHtml = '';
-        if (subtopicCount > 0) {
-          const shown = subtopics.slice(0, 3);
-          shown.forEach(sub => {
-            previewHtml += `<span>${sub.name}</span>`;
-          });
-          if (subtopicCount > 3) {
-            previewHtml += `<span class="more-indicator">+${subtopicCount - 3} more</span>`;
-          }
-        } else {
-          previewHtml = `<span style="color:#94a3b8;">No subtopics</span>`;
-        }
+        const emoji = t.emoji || '📌';
+        const title = t.topic || 'Untitled';
+        const desc = t.description || '';
 
         card.innerHTML = `
-          <div class="topic-header">
-            <h3>
-              <span class="emoji">${topic.emoji || '📌'}</span>
-              ${topic.topic}
-            </h3>
-            <span class="count-badge">${subtopicCount}</span>
-          </div>
-          <div class="description">${topic.description || ''}</div>
-          <div class="sub-preview">${previewHtml}</div>
-          <div class="click-hint">
-            <i class="bi bi-arrow-right-circle"></i> View all subtopics
-          </div>
+          <div class="emoji-big">${emoji}</div>
+          <div class="title">${title}</div>
+          <div class="desc">${desc}</div>
+          <div class="hint"><i class="bi bi-arrow-right-circle"></i> view subtopics</div>
         `;
-
         grid.appendChild(card);
       });
     }
 
-    // Load JSON from file
+    // fetch json
     fetch('topics.json')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
       })
       .then(data => {
-        // Check if data has topics array
-        const topics = data.topics || data;
-        renderTopics(Array.isArray(topics) ? topics : []);
+        // support { topics: [...] } or direct array
+        const list = Array.isArray(data) ? data : (data.topics || []);
+        renderCards(list);
       })
-      .catch(error => {
-        console.error('Error loading topics.json:', error);
+      .catch(err => {
+        console.error('load error:', err);
         grid.innerHTML = `
-          <div class="error-message">
-            <i class="bi bi-exclamation-triangle-fill fs-1"></i>
-            <h5 class="mt-3">Failed to load topics.json</h5>
-            <p class="text-muted">${error.message}</p>
-            <p class="text-muted small">Make sure topics.json is in the same folder.</p>
+          <div class="error">
+            <i class="bi bi-exclamation-triangle-fill fs-1 text-danger"></i>
+            <h5 class="mt-2">Could not load topics.json</h5>
+            <p class="text-muted">${err.message}</p>
+            <p class="text-muted small">Make sure the file is in the same folder.</p>
           </div>
         `;
       });
@@ -263,3 +188,4 @@
 </script>
 </body>
 </html>
+
